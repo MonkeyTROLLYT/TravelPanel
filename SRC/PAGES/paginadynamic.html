@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <!-- Codificación de caracteres estándar UTF-8 -->
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <!-- Diseño responsive adaptable a dispositivos móviles -->
+
+    <title>Detalle del País | Travel Planner Pro</title>
+    <!-- Título de la pestaña del navegador -->
+
+    <!-- Fuente de íconos Material Symbols de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <!-- Estilos específicos de la vista dinámica de países -->
+    <link rel="stylesheet" href="/SRC/STYLES/dynamc.css"/>
+
+    <!-- Scripts principales: búsqueda y renderizado dinámico del país -->
+    <script src="/SRC/SCRIPTS/busqueda.js" defer></script>
+    <script src="/SRC/SCRIPTS/dynamic.js" defer></script>
+</head>
+
+<body>
+
+    <!-- =========================
+         ENCABEZADO PRINCIPAL
+    ========================== -->
+    <header class="navbar">
+
+        <!-- Sección izquierda de la navegación -->
+        <div class="navbar-left">
+
+            <!-- Identidad visual de la aplicación -->
+            <div class="brand-logo">
+                <span class="material-symbols-outlined icon-primary">travel_explore</span>
+                <span class="brand-name">Travel Planner Pro</span>
+            </div>
+
+            <!-- Menú de navegación para escritorio -->
+            <nav class="nav-desktop">
+
+                <!-- Acceso a la página principal -->
+                <a class="nav-link" href="/SRC/index.html" id="btn-home">
+                    <span class="material-symbols-outlined">home</span>
+                    <span>Home</span>
+                </a>
+
+                <!-- Acceso al módulo de búsqueda -->
+                <a class="nav-link" href="busqueda.html" id="btn-search">
+                    <span class="material-symbols-outlined">search</span>
+                    <span>Buscar</span>
+                </a>
+
+                <!-- Acceso a destinos favoritos -->
+                <a class="nav-link" href="favoritos.html" id="btn-favoritos">
+                    <span class="material-symbols-outlined">favorite</span>
+                    <span>Favoritos</span>
+                </a>
+
+                <!-- Acceso al catálogo de atracciones -->
+                <a class="nav-link" href="atraciones.html" id="btn-atracciones">
+                    <span class="material-symbols-outlined">local_see</span>
+                    <span>Atracciones</span>
+                </a>
+
+                <!-- Acceso al historial de consultas -->
+                <a class="nav-link" href="historial.html" id="btn-historial">
+                    <span class="material-symbols-outlined">history</span>
+                    <span>Historial</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <!-- Sección derecha de la navegación -->
+        <div class="navbar-right">
+
+            <!-- Control para alternar entre tema claro y oscuro -->
+            <button class="theme-toggle-btn" id="theme-toggle">
+                <span class="material-symbols-outlined" id="icono-tema"></span>
+                <span id="mostrarmensaje"></span>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
+    <main class="main-container">
+        
+        <!-- Encabezado móvil del sistema -->
+        <div class="mobile-header">
+            <div class="brand-logo">
+                <span class="material-symbols-outlined icon-primary">travel_explore</span>
+                <span class="brand-name">Travel Planner Pro</span>
+            </div>
+        </div>
+    
+        <!-- =========================
+             HERO DEL PAÍS
+        ========================== -->
+        <div class="country-hero-section">
+
+            <!-- Botón de favoritos (corazón) -->
+            <button class="btn-encima-foto" id="btn-favorito">
+                <span id="icono-corazon">🤍</span>
+            </button>
+
+            <!-- Bandera del país -->
+            <div class="flag-wrapper">
+                <img id="country-flag" src="placeholder-flag.png" alt="Bandera del país" class="hero-flag">
+            </div>
+            
+            <!-- Información principal del país -->
+            <div class="country-header-title">
+                <h1 id="country-name" class="welcome-title">{Nombre del País}</h1>
+                <p id="country-official-name" class="welcome-subtitle">{Nombre Oficial}</p>
+            </div>
+
+        </div>
+
+        <!-- =========================
+             LAYOUT PRINCIPAL
+        ========================== -->
+        <div class="detail-layout-grid">
+            
+            <!-- Columna principal -->
+            <div class="layout-column-main">
+
+                <!-- Información general del país -->
+                <section class="glass-card">
+
+                    <div class="card-header-accent section-primary">
+                        <span class="material-symbols-outlined">public</span>
+                        <h2>Información General</h2>
+                    </div>
+
+                    <!-- Lista vertical de datos -->
+                    <div class="data-vertical-list">
+                        <div class="data-item">
+                            <span class="data-label">Capital:</span>
+                            <span id="country-capital" class="data-value">-</span>
+                        </div>
+
+                        <div class="data-item">
+                            <span class="data-label">Población:</span>
+                            <span id="country-population" class="data-value">-</span>
+                        </div>
+
+                        <div class="data-item">
+                            <span class="data-label">Región:</span>
+                            <span id="country-region" class="data-value">-</span>
+                        </div>
+
+                        <div class="data-item">
+                            <span class="data-label">Subregión:</span>
+                            <span id="country-subregion" class="data-value">-</span>
+                        </div>
+
+                        <div class="data-item">
+                            <span class="data-label">Idioma Principal:</span>
+                            <span id="country-language" class="data-value">-</span>
+                        </div>
+
+                        <div class="data-item">
+                            <span class="data-label">Moneda Oficial:</span>
+                            <span id="country-currency-info" class="data-value">-</span>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Sección de clima -->
+                <section class="glass-card">
+
+                    <div class="card-header-accent section-secondary">
+                        <span class="material-symbols-outlined">device_thermostat</span>
+                        <h2>Clima Actual en la Capital</h2>
+                    </div>
+
+                    <div class="weather-display-grid">
+
+                        <!-- Estado principal del clima -->
+                        <div class="weather-main-status">
+                            <span id="weather-icon" class="material-symbols-outlined icon-stat">wb_sunny</span>
+                            <span id="weather-temp" class="stat-number">--°C</span>
+                            <span id="weather-condition" class="stat-label">Estado Climático</span>
+                        </div>
+
+                        <!-- Detalles adicionales del clima -->
+                        <div class="weather-details-sublist">
+
+                            <div class="sub-detail-item">
+                                <span class="material-symbols-outlined">humidity_percentage</span>
+                                <div>
+                                    <p class="sub-label">Humedad</p>
+                                    <p id="weather-humidity" class="sub-value">--%</p>
+                                </div>
+                            </div>
+
+                            <div class="sub-detail-item">
+                                <span class="material-symbols-outlined">air</span>
+                                <div>
+                                    <p class="sub-label">Viento</p>
+                                    <p id="weather-wind" class="sub-value">-- km/h</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Conversor de moneda -->
+                <section class="glass-card">
+
+                    <div class="card-header-accent section-tertiary">
+                        <span class="material-symbols-outlined">currency_exchange</span>
+                        <h2>Conversor de Moneda</h2>
+                    </div>
+
+                    <div class="converter-box">
+
+                        <p class="welcome-subtitle">
+                            Convierte divisas globales a la moneda local (<span id="target-currency-code">---</span>):
+                        </p>
+                        
+                        <!-- Entrada de datos -->
+                        <div class="input-group">
+                            <input type="number" id="converter-amount" value="100" class="form-input">
+
+                            <select id="converter-source" class="form-select">
+                                <option value="USD">USD - Dólar Americano</option>
+                                <option value="COP">COP - Peso Colombiano</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="GBP">GBP - Libra Esterlina</option>
+                            </select>
+                        </div>
+
+                        <!-- Resultado del conversor -->
+                        <div class="converter-result-display">
+                            <span class="material-symbols-outlined">equal</span>
+                            <h3 id="converter-result-value">--.--</h3>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <!-- Columna lateral -->
+            <div class="layout-column-side">
+
+                <!-- Atracciones turísticas -->
+                <section class="glass-card">
+
+                    <div class="card-header-accent section-primary-container">
+                        <span class="material-symbols-outlined">map</span>
+                        <h2>Atracciones Turísticas Relevantes</h2>
+                    </div>
+                    
+                    <!-- Lista dinámica de atracciones -->
+                    <div id="attractions-container" class="attractions-vertical-list">
+
+                        <!-- Tarjeta de atracción (ejemplo) -->
+                        <article class="attraction-item-card">
+
+                            <div class="attraction-img-thumb">
+                                <img src="placeholder-attraction.jpg" alt="Nombre Atracción" class="attraction-img">
+                            </div>
+
+                            <div class="attraction-info-content">
+                                <span class="card-tag">Categoría Histórica</span>
+                                <h4>Nombre de la Atracción</h4>
+                                <p class="attraction-description">
+                                    Breve descripción del punto de interés turístico obtenido mediante la API...
+                                </p>
+                            </div>
+
+                        </article>
+
+                        <!-- Segunda tarjeta de ejemplo -->
+                        <article class="attraction-item-card">
+
+                            <div class="attraction-img-thumb">
+                                <img src="placeholder-attraction.jpg" alt="Nombre Atracción" class="attraction-img">
+                            </div>
+
+                            <div class="attraction-info-content">
+                                <span class="card-tag">Categoría Parque</span>
+                                <h4>Punto Turístico Alternativo</h4>
+                                <p class="attraction-description">
+                                    Otra descripción corta obligatoria para cumplir con los requerimientos mínimos de visualización.
+                                </p>
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================== -->
+    <footer class="main-footer">
+        <div class="footer-info">
+            <span class="footer-brand">Travel Planner Pro</span>
+            <p class="footer-copyright">© 2026 Travel Planner Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- =========================
+         NAVEGACIÓN MÓVIL
+    ========================== -->
+    <div class="mobile-bottom-nav">
+
+        <!-- Acceso rápido a Inicio -->
+        <a class="mobile-nav-btn" href="/SRC/index.html">
+            <span class="material-symbols-outlined" data-icon="home">
+                home
+            </span>
+
+            <span class="mobile-btn-text">
+                Home
+            </span>
+        </a>
+
+        <!-- Acceso rápido a Búsqueda -->
+        <a class="mobile-nav-btn" href="busqueda.html">
+            <span class="material-symbols-outlined" data-icon="search">
+                search
+            </span>
+
+            <span class="mobile-btn-text">
+                Buscar
+            </span>
+        </a>
+
+        <!-- Acceso rápido a Favoritos -->
+        <a class="mobile-nav-btn" href="favoritos.html">
+            <span class="material-symbols-outlined" data-icon="favorite">
+                favorite
+            </span>
+
+            <span class="mobile-btn-text">
+                Favoritos
+            </span>
+        </a>
+
+        <!-- Acceso rápido a Atracciones -->
+        <a class="mobile-nav-btn" href="atraciones.html">
+            <span class="material-symbols-outlined" data-icon="atracion">
+                local_see
+            </span>
+
+            <span class="mobile-btn-text">
+                Atracciones
+            </span>
+        </a>
+
+        <!-- Acceso rápido al Historial -->
+        <a class="mobile-nav-btn" href="historial.html">
+            <span class="material-symbols-outlined" data-icon="history">
+                history
+            </span>
+
+            <span class="mobile-btn-text">
+                Historial
+            </span>
+        </a>
+
+    </div>
+
+</body>
+</html>

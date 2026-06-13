@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+    <meta charset="utf-8">
+    <!-- Configuración de codificación y compatibilidad de caracteres -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Adaptación responsive para dispositivos móviles -->
+
+    <title>Explora - Travel Planner Pro</title>
+
+    <!-- Fuente de íconos de Google Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <!-- Estilos específicos de la página de favoritos -->
+    <link rel="stylesheet" href="/SRC/STYLES/favoritos.css">
+
+    <!-- Scripts de búsqueda y gestión de favoritos -->
+    <script src="/SRC/SCRIPTS/busqueda.js" defer></script>
+    <script src="/SRC/SCRIPTS/favoritos.js" defer></script>
+</head>
+
+<body>
+
+    <!-- =======================
+         ENCABEZADO PRINCIPAL
+    ======================== -->
+    <header class="navbar">
+
+        <div class="navbar-left">
+
+            <!-- Marca y logo de la aplicación -->
+            <div class="brand-logo">
+                <span class="material-symbols-outlined icon-primary">travel_explore</span>
+                <span class="brand-name">Travel Planner Pro</span>
+            </div>
+
+            <!-- Navegación principal (versión escritorio) -->
+            <nav class="nav-desktop">
+
+                <!-- Enlace a página principal -->
+                <a class="nav-link" href="/SRC/index.html" id="btn-home">
+                    <span class="material-symbols-outlined">home</span>
+                    <span>Home</span>
+                </a>
+
+                <!-- Enlace a búsqueda -->
+                <a class="nav-link" href="busqueda.html" id="btn-search">
+                    <span class="material-symbols-outlined">search</span>
+                    <span>Buscar</span>
+                </a>
+
+                <!-- Sección de favoritos (activa) -->
+                <a class="nav-link active" href="#" id="btn-favoritos">
+                    <span class="material-symbols-outlined">favorite</span>
+                    <span>Favoritos</span>
+                </a>
+
+                <!-- Enlace a atracciones turísticas -->
+                <a class="nav-link" href="atraciones.html" id="btn-atracciones">
+                    <span class="material-symbols-outlined">local_see</span>
+                    <span>Atracciones</span>
+                </a>
+
+                <!-- Enlace a historial de actividad -->
+                <a class="nav-link" href="historial.html" id="btn-historial">
+                    <span class="material-symbols-outlined">history</span>
+                    <span>Historial</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <!-- Botón para alternar entre modo claro y oscuro -->
+        <button class="theme-toggle-btn" id="theme-toggle">
+            <span class="material-symbols-outlined" id="icono-tema"></span>
+            <span id="mostrarmensaje"></span>
+        </button>
+
+    </header>
+
+    <!-- =======================
+         CONTENIDO PRINCIPAL
+    ======================== -->
+    <main class="main-container">
+
+        <!-- Contenedor dinámico de favoritos -->
+        <div id="contenedor-favoritos" class="favoritos-container">
+
+            <!-- Estado inicial mientras se cargan datos -->
+            <div class="cargando-estado">
+                <p>Sincronizando tus favoritos con el ecosistema...</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- =======================
+         PIE DE PÁGINA
+    ======================== -->
+    <footer class="main-footer">
+
+        <div class="footer-info">
+
+            <!-- Nombre de la aplicación -->
+            <span class="footer-brand">
+                Travel Planner Pro
+            </span>
+
+            <!-- Derechos de autor -->
+            <p class="footer-copyright">
+                © 2026 Travel Planner Pro. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- =======================
+         NAVEGACIÓN MÓVIL
+    ======================== -->
+    <div class="mobile-bottom-nav">
+
+        <!-- Home -->
+        <a class="mobile-nav-btn" href="/SRC/index.html">
+            <span class="material-symbols-outlined" data-icon="home">home</span>
+            <span class="mobile-btn-text">Home</span>
+        </a>
+
+        <!-- Búsqueda -->
+        <a class="mobile-nav-btn" href="busqueda.html">
+            <span class="material-symbols-outlined" data-icon="search">search</span>
+            <span class="mobile-btn-text">Buscar</span>
+        </a>
+
+        <!-- Favoritos (activo en móvil) -->
+        <a class="mobile-nav-btn active" href="#">
+            <span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+            <span class="mobile-btn-text">Favoritos</span>
+        </a>
+
+        <!-- Atracciones -->
+        <a class="mobile-nav-btn" href="atraciones.html">
+            <span class="material-symbols-outlined" data-icon="atracion">local_see</span>
+            <span class="mobile-btn-text">Atracciones</span>
+        </a>
+
+        <!-- Historial -->
+        <a class="mobile-nav-btn" href="historial.html">
+            <span class="material-symbols-outlined" data-icon="history">history</span>
+            <span class="mobile-btn-text">Historial</span>
+        </a>
+
+    </div>
+
+</body>
+</html>

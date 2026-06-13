@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!-- Documento HTML5 -->
+
+<html lang="es">
+<!-- Idioma principal de la aplicación: Español -->
+
+<head>
+    <!-- Metadatos y configuración general de la página -->
+
+    <meta charset="utf-8">
+    <!-- Codificación UTF-8 para soportar caracteres especiales -->
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Configuración responsive para dispositivos móviles -->
+
+    <title>Travel Planner Pro - Dashboard</title>
+    <!-- Título mostrado en la pestaña del navegador -->
+
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="STYLES/home.css">
+
+    <!-- Archivo JavaScript principal -->
+    <script src="SCRIPTS/busqueda.js" defer></script>
+    <!--Archivo para mostrar informacion general-->
+    <script src="SCRIPTS/home.js" defer></script>
+    <!-- Biblioteca de iconos Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Barra de navegación principal -->
+    <header class="navbar">
+
+        <!-- Sección izquierda de la navegación -->
+        <div class="navbar-left">
+
+            <!-- Identidad visual de la aplicación -->
+            <div class="brand-logo">
+                <span class="material-symbols-outlined icon-primary">travel_explore</span>
+                <span class="brand-name">Travel Planner Pro</span>
+            </div>
+
+            <!-- Menú de navegación para escritorio -->
+            <nav class="nav-desktop">
+
+                <!-- Acceso a la página principal -->
+                <a class="nav-link active" href="#" id="btn-home">
+                    <span class="material-symbols-outlined">home</span>
+                    <span>Home</span>
+                </a>
+
+                <!-- Acceso al módulo de búsqueda -->
+                <a class="nav-link" href="PAGES/busqueda.html" id="btn-search">
+                    <span class="material-symbols-outlined">search</span>
+                    <span>Buscar</span>
+                </a>
+
+                <!-- Acceso a destinos favoritos -->
+                <a class="nav-link" href="PAGES/favoritos.html" id="btn-favoritos">
+                    <span class="material-symbols-outlined">favorite</span>
+                    <span>Favoritos</span>
+                </a>
+
+                <!-- Acceso al catálogo de atracciones -->
+                <a class="nav-link" href="PAGES/atraciones.html" id="btn-atracciones">
+                    <span class="material-symbols-outlined">local_see</span>
+                    <span>Atracciones</span>
+                </a>
+
+                <!-- Acceso al historial de consultas -->
+                <a class="nav-link" href="PAGES/historial.html" id="btn-historial">
+                    <span class="material-symbols-outlined">history</span>
+                    <span>Historial</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <!-- Sección derecha de la navegación -->
+        <div class="navbar-right">
+
+            <!-- Control para alternar entre tema claro y oscuro -->
+            <button class="theme-toggle-btn" id="theme-toggle">
+                <span class="material-symbols-outlined" id="icono-tema"></span>
+                <span id="mostrarmensaje"></span>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- Contenido principal del dashboard -->
+    <main class="main-container">
+
+        <!-- Mensaje de bienvenida al usuario -->
+        <h1 class="welcome-title">
+            ¡Bienvenido de vuelta, VUsuario!
+        </h1>
+
+        <!-- Descripción introductoria -->
+        <p class="welcome-subtitle">
+            Tu panel de control de viajes está listo para una nueva aventura.
+        </p>
+
+        <br>
+
+        <!-- Panel de métricas y estadísticas -->
+        <div class="stats-grid">
+
+            <!-- Indicador: Países consultados -->
+            <div class="stat-card">
+                <span class="material-symbols-outlined icon-stat" data-icon="public">
+                    public
+                </span>
+
+                <span class="stat-number" id="consultadostotal">0</span>
+
+                <span class="stat-label">
+                    Países Consultados
+                </span>
+            </div>
+
+            <!-- Indicador: Destinos favoritos -->
+            <div class="stat-card">
+                <span class="material-symbols-outlined icon-stat" data-icon="favorite">
+                    favorite
+                </span>
+
+                <span class="stat-number" id="fav">0</span>
+
+                <span class="stat-label">
+                    Destinos Favoritos
+                </span>
+            </div>
+
+            <!-- Indicador: Atracciones favoritas -->
+            <div class="stat-card">
+                <span class="material-symbols-outlined icon-stat" data-icon="attractions">
+                    attractions
+                </span>
+
+                <span class="stat-number" id="favactrac">0</span>
+
+                <span class="stat-label">
+                    Atracciones Favoritas
+                </span>
+            </div>
+
+        </div>
+
+        <!-- Galería de inspiración para futuros viajes -->
+        <section class="inspiration-grid">
+
+            <!-- Destino destacado: Alpes Suizos -->
+            <div class="inspiration-card">
+                <img alt="Mountains" class="card-img" src="IMAGES/Alpes.png">
+
+                <div class="card-overlay">
+                    <span class="card-tag">Inspiración</span>
+                    <h3 class="card-title">Alpes Suizos</h3>
+                </div>
+            </div>
+
+            <!-- Destino destacado: Londres -->
+            <div class="inspiration-card">
+                <img alt="London" class="card-img" src="IMAGES/Londres.png">
+
+                <div class="card-overlay">
+                    <span class="card-tag">Elegancia</span>
+                    <h3 class="card-title">Londres nocturno</h3>
+                </div>
+            </div>
+
+            <!-- Destino destacado: Maldivas -->
+            <div class="inspiration-card">
+                <img alt="Tropical Beach" class="card-img" src="IMAGES/Malvidas.png">
+
+                <div class="card-overlay">
+                    <span class="card-tag">Relajación</span>
+                    <h3 class="card-title">Maldivas</h3>
+                </div>
+            </div>
+
+            <!-- Destino destacado: Japón -->
+            <div class="inspiration-card">
+                <img alt="Kyoto Temple" class="card-img" src="IMAGES/Japon.jpg">
+
+                <div class="card-overlay">
+                    <span class="card-tag">Cultura</span>
+                    <h3 class="card-title">Kyoto, Japón</h3>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Pie de página institucional -->
+    <footer class="main-footer">
+
+        <div class="footer-info">
+
+            <!-- Nombre comercial de la aplicación -->
+            <span class="footer-brand">
+                Travel Planner Pro
+            </span>
+
+            <!-- Información legal y derechos reservados -->
+            <p class="footer-copyright">
+                © 2026 Travel Planner Pro. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- Navegación inferior para dispositivos móviles -->
+    <div class="mobile-bottom-nav">
+
+        <!-- Acceso rápido a Inicio -->
+        <a class="mobile-nav-btn active" href="#">
+            <span class="material-symbols-outlined" data-icon="home">
+                home
+            </span>
+
+            <span class="mobile-btn-text">
+                Home
+            </span>
+        </a>
+
+        <!-- Acceso rápido a Búsqueda -->
+        <a class="mobile-nav-btn" href="PAGES/busqueda.html">
+            <span class="material-symbols-outlined" data-icon="search">
+                search
+            </span>
+
+            <span class="mobile-btn-text">
+                Buscar
+            </span>
+        </a>
+
+        <!-- Acceso rápido a Favoritos -->
+        <a class="mobile-nav-btn" href="PAGES/favoritos.html">
+            <span class="material-symbols-outlined" data-icon="favorite">
+                favorite
+            </span>
+
+            <span class="mobile-btn-text">
+                Favoritos
+            </span>
+        </a>
+
+        <!-- Acceso rápido a Atracciones -->
+        <a class="mobile-nav-btn" href="PAGES/atraciones.html">
+            <span class="material-symbols-outlined" data-icon="atracion">
+                local_see
+            </span>
+
+            <span class="mobile-btn-text">
+                Atracciones
+            </span>
+        </a>
+
+        <!-- Acceso rápido al Historial -->
+        <a class="mobile-nav-btn" href="PAGES/historial.html">
+            <span class="material-symbols-outlined" data-icon="history">
+                history
+            </span>
+
+            <span class="mobile-btn-text">
+                Historial
+            </span>
+        </a>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,752 @@
+:root {
+    /* Tonos principales de identidad visual */
+    --primary: #002045;                 /* Azul marino profundo para títulos principales */
+    --secondary: #0051d5;               /* Azul vibrante para elementos interactivos y acentos */
+    --background: #f7f9fb;              /* Gris muy claro azulado para el fondo de la pantalla */
+    
+    /* Variaciones de superficies basadas en Material Design 3 */
+    --surface-container-lowest: #ffffff; /* Blanco puro para tarjetas y elementos elevados */
+    --surface-container-low: #f2f4f6;    /* Fondo suave para secciones secundarias o footers */
+    --surface-container: #eceef0;        /* Gris intermedio para contenedores de fondo */
+    --surface-container-high: #e6e8ea;   /* Gris oscuro para estados hover en botones/enlaces */
+    
+    /* Colores tipográficos y de contraste */
+    --on-surface: #191c1e;              /* Negro suave para texto principal sobre fondos claros */
+    --on-surface-variant: #43474e;      /* Gris oscuro para subtítulos y texto secundario */
+    --outline-variant: #c4c6cf;         /* Gris claro para bordes finos y separadores */
+    
+    /* Contenedores de Iconos de Características (Bento Grid) */
+    --secondary-container: #316bf3;     /* Fondo azul para el icono de mapa */
+    --on-secondary-container: #fefcff;  /* Texto/icono blanco sobre contenedor secundario */
+    --tertiary-container: #27374b;      /* Fondo azul oscuro grisáceo para tendencias */
+    --on-tertiary-container: #90a0b9;   /* Azul pastel opaco para texto sobre contenedor terciario */
+    --primary-container: #1a365d;       /* Fondo azul noche para contenedor de IA */
+    --on-primary-container: #86a0cd;    /* Azul claro lavanda para texto sobre contenedor de IA */
+    
+    /* Ajustes de diseño reutilizables */
+    --radius-xl: 0.75rem;               /* Esquinas redondeadas medianas (12px) para tarjetas */
+    --radius-full: 9999px;              /* Redondeado perfecto para botones en píldora y avatares */
+    --transition: all 0.3s ease-in-out; /* Transición estándar para suavizar efectos hover */
+}
+
+/* Variables cuando se activa la clase Dark Mode en la etiqueta HTML */
+html.dark {
+    --background: #051424;              /* Azul noche profundo para el fondo general */
+    --on-surface: #eff1f3;              /* Blanco hueso para alta legibilidad del texto */
+    --surface-container-lowest: #010f1f; /* Azul muy oscuro para tarjetas en modo noche */
+    --surface-container-low: #0d1c2d;    /* Azul intermedio para el footer y elementos secundarios */
+    --surface-container: #1a2a3a;        /* Fondo para contenedores bloque */
+    --surface-container-high: #2c3a4c;   /* Gris azulado para hovers en modo oscuro */
+    --outline-variant: #43474e;         /* Bordes más oscuros para no lastimar la vista */
+    --primary: #60a5fa;                 /* Azul cielo brillante para títulos en modo oscuro */
+    --secondary: #60a5fa;               /* Cambiamos el azul fuerte por uno brillante en modo oscuro */
+    --on-surface-variant: #c4c6cf;      /* Gris claro para subtítulos en modo noche */
+}
+
+/* ==========================================================================
+   2. RESETEO GENERAL Y ELEMENTOS BASE
+   ========================================================================== */
+
+/* Quita los márgenes y paddings por defecto y unifica el modelo de caja */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Transición unificada para que el cambio de tema claro/oscuro sea ultra suave */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--on-surface);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    height: 64px;
+    background-color: var(--surface-container-lowest);
+    border-bottom: 1px solid var(--outline-variant);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.icon-primary {
+    color: var(--secondary);
+    font-size: 24px;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--on-surface-variant);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+}
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--on-surface-variant);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--secondary);
+    background-color: var(--surface-container-high);
+}
+
+.theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    border: 1px solid var(--outline-variant);
+    color: var(--on-surface-variant);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.main-container {
+    max-width: 1200px;                  /* Evita que el contenido se estire infinito en pantallas gigantes */
+    margin: 0 auto;                     /* Centra horizontalmente todo el bloque */
+    padding-top: 32px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--secondary);
+    background-color: var(--surface-container-low);
+}
+
+.main-footer {
+    width: 100%;
+    padding: 32px 16px;
+    background-color: var(--surface-container-low);
+    border-top: 1px solid var(--outline-variant);
+    display: flex;
+    flex-direction: column;             /* Alinea el texto en bloque central en mobile */
+    align-items: center;
+    gap: 16px;
+}
+
+/* Contenedor interno de información tipográfica */
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Nombre de la aplicación en el pie de página */
+.footer-brand {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--on-surface);
+}
+
+/* Leyenda de derechos reservados */
+.footer-copyright {
+    font-size: 14px;
+    color: var(--on-surface-variant); 
+}
+
+/* ==========================================================================
+   AGREGAR AL FINAL DE TU ARCHIVO CSS COMPATIBLE (DEBAJO DE LOS COMPONENTES ANTERIORES)
+   ========================================================================== */
+
+/* Layout en Dos Columnas para Escritorio */
+.detail-layout-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Columna de datos ligeramente más ancha que la de atracciones */
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.layout-column-main, 
+.layout-column-side {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Encabezado Hero del País */
+.country-hero-section {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background-color: var(--surface-container-low);
+    border: 1px solid var(--outline-variant);
+    margin-bottom: 24px;
+}
+
+.flag-wrapper {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.hero-flag {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.country-header-title {
+    padding: 24px;
+    padding-left: 24px; /* Padding izquierdo protector */
+    margin-top: -40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Tarjetas Base de Información Reutilizables (Estilo Glassmorphism Limpio) */
+.glass-card {
+    background-color: var(--surface-container-lowest);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-xl);
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* Encabezados de Sección con Acentos de Color */
+.card-header-accent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--outline-variant);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.card-header-accent h2 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--on-surface);
+}
+
+/* Asignación cromática de íconos según contenedores Bento */
+.section-primary span { color: var(--secondary); }
+.section-secondary span { color: #316bf3; }
+.section-tertiary span { color: #27374b; }
+.section-primary-container span { color: var(--primary); }
+
+/* Listados de Datos Verticales */
+.data-vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 8px; /* Manteniendo la protección del margen izquierdo */
+}
+
+.data-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--surface-container);
+}
+
+.data-label {
+    font-size: 14px;
+    color: var(--on-surface-variant);
+    font-weight: 500;
+}
+
+.data-value {
+    font-size: 15px;
+    color: var(--on-surface);
+    font-weight: 600;
+}
+
+/* Bloque visual de Clima */
+.weather-display-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: center;
+}
+
+.weather-main-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.weather-details-sublist {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: var(--surface-container-low);
+    padding: 16px;
+    border-radius: var(--radius-xl);
+}
+
+.sub-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sub-detail-item span {
+    color: var(--on-surface-variant);
+}
+
+.sub-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--on-surface-variant);
+}
+
+.sub-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--on-surface);
+}
+
+/* Componentes del Conversor de Moneda */
+.converter-box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-group {
+    display: flex;
+    gap: 12px;
+}
+
+.form-input, .form-select {
+    background-color: var(--surface-container);
+    border: 1px solid var(--outline-variant);
+    color: var(--on-surface);
+    padding: 12px 16px;
+    border-radius: var(--radius-xl);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.form-input {
+    flex: 1;
+    font-weight: 600;
+}
+
+.form-select {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.converter-result-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+    padding: 16px;
+    border-radius: var(--radius-xl);
+}
+
+.converter-result-display h3 {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+/* Sección e Items de Atracciones Turísticas (Mínimo 5 requeridas) */
+.attractions-vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.attraction-item-card {
+    display: flex;
+    gap: 16px;
+    background-color: var(--surface-container-low);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-xl);
+    padding: 12px;
+    align-items: center;
+}
+
+.attraction-img-thumb {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.attraction-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.attraction-info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+
+.attraction-description {
+    font-size: 12px;
+    color: var(--on-surface-variant);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Estilos para el botón flotante sobre la bandera */
+.btn-encima-foto {
+    position: absolute;
+    top: 16px;       /* Distancia desde el borde superior */
+    right: 16px;     /* Distancia desde el borde derecho */
+    z-index: 10;     /* Lo posiciona por encima de la imagen y del degradado */
+    
+    /* Diseño estilizado (puedes cambiar los colores si quieres) */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    backdrop-filter: blur(8px);                 /* Efecto borroso de fondo */
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    color: #ffffff;                             /* Texto blanco para que resalte en la foto */
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto hover suave al pasar el mouse */
+.btn-encima-foto:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+/* ==========================================================================
+   ESTILOS DEL BOTÓN DE TEMA (ESCRITORIO POR DEFECTO)
+   ========================================================================== */
+.theme-toggle-btn {
+    position: absolute; /* Lo desprendemos para ubicarlo donde queramos */
+    right: 48px;
+    top: 12px;
+    z-index: 60; /* Por encima del navbar */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    border: 1px solid var(--outline-variant);
+    color: var(--on-surface-variant);
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--secondary);
+    background-color: var(--surface-container-low);
+}
+
+.mobile-header {
+    display: none !important;
+}
+.mobile-bottom-nav {
+    display: none !important;
+}
+/* Fuerza al ícono de Google a rellenarse por completo */
+.btn-encima-foto {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.btn-encima-foto:hover {
+    transform: scale(1.1);
+}
+
+.btn-encima-foto span {
+    font-size: 18px; /* Tamaño del emoji */
+}
+.btn-fav-atraccion {
+    background: transparent;
+    border: none;
+    color: var(--on-surface-variant); /* Toma el color de texto secundario de tu tema */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: var(--radius-full); /* Por si quieres que tenga un área circular */
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease;
+}
+
+/* Efecto Hover (Cuando pasas el mouse por encima) */
+.btn-fav-atraccion:hover {
+    color: #ef4444; /* Rojo vibrante */
+    transform: scale(1.18); /* Se agranda un poco */
+}
+
+/* Efecto Click (Micro-interacción al presionarlo) */
+.btn-fav-atraccion:active {
+    transform: scale(0.85); /* Se encoge un poco al pulsar */
+}
+.btn-fav-atraccion.active {
+    color: #ef4444; /* Se queda rojo fijo */
+}
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (Celulares)
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    .navbar {
+        display: none !important;
+    }
+
+    /* 📱 Reubicamos el único botón de tema arriba a la derecha en celular */
+    .theme-toggle-btn {
+        right: 16px;
+        top: 12px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        justify-content: center;
+        background-color: var(--surface-container-low);
+    }
+
+    /* Escondemos el texto "Modo Oscuro" en el celular para que no estorbe */
+    .theme-toggle-btn #mostrarmensaje {
+        display: none !important;
+    }
+
+    .theme-toggle-btn span {
+        font-size: 20px;
+    }
+
+    /* Cabecera móvil con espacio libre a la derecha para el botón */
+    .mobile-header {
+        display: flex !important;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 12px 4px;
+        margin-bottom: 20px;
+        border-bottom: 1px dashed var(--outline-variant);
+        width: 100%;
+        height: 40px;
+    }
+
+    /* Tu barra inferior estándar intacta */
+    .mobile-bottom-nav {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 64px;
+        background-color: var(--surface-container-lowest);
+        border-top: 1px solid var(--outline-variant);
+        justify-content: space-around;
+        align-items: center;
+        z-index: 100;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        padding: 0 8px;
+    }
+
+    .mobile-nav-btn {
+        background: transparent;
+        border: none;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        color: var(--on-surface-variant);
+        cursor: pointer;
+        flex: 1;
+        height: 100%;
+    }
+
+    .mobile-nav-btn .material-symbols-outlined {
+        font-size: 24px;
+    }
+
+    .mobile-btn-text {
+        font-size: 11px;
+        font-weight: 500;
+    }
+
+    .mobile-nav-btn.active {
+        color: var(--secondary);
+    }
+
+    body {
+        padding-bottom: 80px;
+    }
+
+    /* Ajustes Bento Grid móviles */
+    .main-container {
+        padding-top: 8px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .flag-wrapper {
+        height: 140px; 
+    }
+
+    .country-header-title {
+        padding: 12px;
+        margin-top: -15px;
+    }
+
+    .welcome-title {
+        font-size: 22px;
+    }
+
+    .detail-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .glass-card {
+        padding: 16px;
+    }
+
+    .weather-display-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-input, .form-select {
+        width: 100%;
+    }
+
+    .attraction-item-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .attraction-img-thumb {
+        width: 100%;
+        height: 160px;
+    }
+
+    #attractions-container > article:nth-child(1),
+    #attractions-container > article:nth-child(2) {
+        display: none !important;
+    }
+    /* Estilo para el select en celulares */
+    .form-select {
+    max-width: 180px; /* Limita el ancho máximo para que se vea más corto */
+    width: 100%;
+    height: 42px;
+    padding: 0 8px;
+    font-size: 14px; /* Un poco más pequeño pero controlado */
+    color: var(--on-surface);
+    background-color: var(--surface-container-low);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius-xl);
+    
+    /* Corta el texto con puntos suspensivos (...) si el nombre de la moneda es muy largo */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    }
+}
