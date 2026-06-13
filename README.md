@@ -3,7 +3,10 @@
 ¡Bienvenido a **Travel Planner Pro**! Una aplicación web moderna, rápida y dinámica diseñada para exploradores y entusiastas del turismo. Este ecosistema te permite buscar información detallada de cualquier país en tiempo real utilizando la API de **REST Countries**, gestionar tus destinos favoritos y llevar un registro exacto de tu rastro de navegación mediante un historial inteligente.
 
 La interfaz está construida bajo una estética limpia inspirada en **Bento Grid** y sigue las directrices visuales de **Material Design 3**, adaptándose perfectamente a cualquier dispositivo móvil y PC.
-
+#Ver pagina
+https://monkeytrollyt.github.io/TravelPanel/
+# IMPORTANTE
+Me he adado cuenta ha la hora de probar la pagina para comparar con un compañero que la api de informacion de paises falla seguido (CABE ACLARAR QUE ME DI CUENTA DESPUES DE REALIZAR MI MINI PROYECTO) y esa api es clave para las demas asi que es posible que a veces no carguen los paises a la hora se buscar
 ---
 
 ## 🚀 Características Clave
