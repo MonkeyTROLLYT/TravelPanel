@@ -200,5 +200,5 @@ contenedorSugerencias.addEventListener('click', (event) => {
     // 4. Guardamos la estructura actualizada en el LocalStorage
     localStorage.setItem('historial_local', JSON.stringify(historialActual));
     
-    window.location.href = `/SRC/PAGES/paginadynamic.html`;
+    window.location.href = `paginadynamic.html`;
 });
